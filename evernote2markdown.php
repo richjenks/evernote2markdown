@@ -60,8 +60,8 @@ foreach ($files as $file) {
 			if (substr($image->mime, 0, 6) === 'image/') {
 
 				// Resource basename and full path
-				$basename = $note->title . '.' . $bytes = bin2hex(random_bytes(3)) . '.' . explode('/', $image->mime)[1];
-				$basename = str_replace(' ', '_', $basename);
+				$basename      = $note->title . '.' . $bytes = bin2hex(random_bytes(3)) . '.' . explode('/', $image->mime)[1];
+				$basename      = str_replace(' ', '_', $basename);
 				$resource_path = implode(DIRECTORY_SEPARATOR, [$folder_path, $basename]);
 
 				// Export image file
@@ -71,10 +71,10 @@ foreach ($files as $file) {
 				$hash = md5(stream_get_contents(fopen($resource_path, 'r')));
 
 				// Attempt to insert this image in place of hash in content
-				$pattern = '/<en-media hash="' . $hash . '".*\/>/';
-				$filename = $image->{'resource-attributes'}->{'file-name'};
-				$url = $image->{'resource-attributes'}->{'source-url'};
-				$markdown = '![' . $filename . '](' . $basename . ' "' . $url . '")';
+				$pattern       = '/<en-media hash="' . $hash . '".*\/>/';
+				$filename      = $image->{'resource-attributes'}->{'file-name'};
+				$url           = $image->{'resource-attributes'}->{'source-url'};
+				$markdown      = '![' . $filename . '](' . $basename . ' "' . $url . '")';
 				$note->content = preg_replace($pattern, $markdown, $note->content);
 
 			}
@@ -94,7 +94,7 @@ foreach ($files as $file) {
 
 		// Trim whitespace on note and each line
 		$note->content = trim($note->content);
-		$lines = explode(PHP_EOL, $note->content);
+		$lines         = explode(PHP_EOL, $note->content);
 		foreach ($lines as $key => $line) $lines[$key] = trim($line);
 		$note->content = implode(PHP_EOL, $lines);
 
