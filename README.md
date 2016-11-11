@@ -22,9 +22,9 @@ Converts exported Evernote files into Markdown — a bit hacky but gets the job 
 1. Clone this repo: `git clone git@github.com:richjenks/evernote2markdown.git`
 1. Install dependencies: `composer install`
 1. Export Evernote notebooks individually (right-click > Export > Export as a file in ENEX format)
-1. Place exported `.emex` files into `emex` directory
+1. Place exported `.emex` files into `input` directory
 1. Run the script: `php evernote2markdown.php`
-1. Folders and Markdown files will be created in a newly-created `markdown` folder
+1. Markdown will be generated in a subdirectory of the `output` folder, e.g. `output/20161231235959`
 
 ## Considerations
 

@@ -1,4 +1,4 @@
 vendor
-emex/*
+input/*
+output/*
 !.gitkeep
-markdown
